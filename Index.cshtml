@@ -1,0 +1,23 @@
+﻿@model IEnumerable<FeedbackManagement.Models.Feedback>
+
+@{
+    ViewBag.Title = "Feedback List";
+}
+
+<h2>Feedback List</h2>
+
+<p>
+    @Html.ActionLink("Give New Feedback", "Create", "Feedback")
+</p>
+
+@if (!Model.Any())
+{
+    <p>No feedback available.</p>
+}
+else
+{
+    foreach (var feedback in Model)
+    {
+        @Html.Partial("_FeedbackList", feedback)
+    }
+}
